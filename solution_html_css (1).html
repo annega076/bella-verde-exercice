@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SOLUTION – Bella Verde Traiteur</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+  <style>
+    /* ÉTAPE 1 – RESET & BASE */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Lato', sans-serif;
+      color: #2c2c2c;
+      background-color: #fafaf7;
+    }
+
+    /* ÉTAPE 2 – HEADER */
+    header {
+      background-color: #1a3c2e;
+      padding: 18px 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    /* ÉTAPE 3 – LOGO */
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+    .logo-icon {
+      width: 48px;
+      height: 48px;
+      background-color: #c8a96e;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+    }
+    .logo-text {
+      font-family: 'Playfair Display', serif;
+      color: #f5f0e8;
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    /* ÉTAPE 4 – NAVIGATION */
+    nav {
+      display: flex;
+      gap: 32px;
+    }
+    nav a {
+      color: #c8c8c0;
+      text-decoration: none;
+      font-size: 14px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      font-weight: 400;
+    }
+    nav a:hover {
+      color: #c8a96e;
+    }
+
+    /* ÉTAPE 5 – HERO */
+    .hero {
+      position: relative;
+      height: 520px;
+      overflow: hidden;
+    }
+    .hero img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to right, rgba(26,60,46,0.75) 0%, rgba(26,60,46,0.2) 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 0 80px;
+    }
+    .hero-overlay h1 {
+      font-family: 'Playfair Display', serif;
+      color: #f5f0e8;
+      font-size: 52px;
+      font-weight: 700;
+      line-height: 1.2;
+      max-width: 560px;
+    }
+    .hero-overlay p {
+      color: #d4cfc7;
+      font-size: 18px;
+      margin-top: 16px;
+      max-width: 420px;
+      line-height: 1.6;
+    }
+    .btn-primary {
+      display: inline-block;
+      margin-top: 32px;
+      padding: 14px 36px;
+      background-color: #c8a96e;
+      color: #1a3c2e;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 14px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      border-radius: 2px;
+    }
+    .btn-primary:hover {
+      background-color: #b8955a;
+    }
+
+    /* ÉTAPE 6 – MAIN */
+    main {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 80px 40px;
+    }
+    .section-label {
+      font-size: 12px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #c8a96e;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 38px;
+      font-weight: 700;
+      color: #1a3c2e;
+      margin-bottom: 24px;
+      line-height: 1.2;
+    }
+    .intro-text {
+      font-size: 17px;
+      line-height: 1.8;
+      color: #4a4a4a;
+      max-width: 680px;
+      margin-bottom: 20px;
+    }
+    .divider {
+      width: 60px;
+      height: 3px;
+      background-color: #c8a96e;
+      margin: 40px 0;
+    }
+
+    /* ÉTAPE 7 – CARDS */
+    .cards-grid {
+      display: flex;
+      gap: 28px;
+      margin-top: 48px;
+    }
+    .card {
+      flex: 1;
+      background-color: #fff;
+      border: 1px solid #e8e4dc;
+      border-radius: 4px;
+      padding: 32px 28px;
+    }
+    .card-icon {
+      font-size: 32px;
+      margin-bottom: 16px;
+    }
+    .card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      color: #1a3c2e;
+      margin-bottom: 12px;
+    }
+    .card p {
+      font-size: 15px;
+      line-height: 1.7;
+      color: #6a6a6a;
+    }
+
+    /* ÉTAPE 8 – FOOTER */
+    footer {
+      background-color: #1a3c2e;
+      color: #a0a89a;
+      padding: 48px 60px 32px;
+      margin-top: 80px;
+    }
+    .footer-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding-bottom: 36px;
+      border-bottom: 1px solid #2e5040;
+    }
+    .footer-brand p {
+      font-size: 14px;
+      color: #7a8a78;
+      margin-top: 8px;
+      max-width: 240px;
+      line-height: 1.6;
+    }
+    .footer-links h4 {
+      color: #f5f0e8;
+      font-size: 13px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    .footer-links ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .footer-links a {
+      color: #7a8a78;
+      text-decoration: none;
+      font-size: 14px;
+    }
+    .footer-links a:hover {
+      color: #c8a96e;
+    }
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 24px;
+      font-size: 13px;
+      color: #566356;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <a href="#" class="logo">
+      <div class="logo-icon">🌿</div>
+      <span class="logo-text">Bella Verde</span>
+    </a>
+    <nav>
+      <a href="#">Accueil</a>
+      <a href="#">Nos Menus</a>
+      <a href="#">À Propos</a>
+      <a href="#">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <img src="https://images.unsplash.com/photo-1555244162-803834f70033?w=1400&q=80" alt="Table dressée avec des plats gastronomiques" />
+    <div class="hero-overlay">
+      <h1>Une cuisine bio, locale et généreuse</h1>
+      <p>Des repas préparés avec passion pour vos événements, livrés directement chez vous.</p>
+      <a href="#" class="btn-primary">Découvrir nos menus</a>
+    </div>
+  </section>
+
+  <main>
+    <p class="section-label">Notre histoire</p>
+    <h2 class="section-title">Du producteur à votre table</h2>
+    <p class="intro-text">Bella Verde est un traiteur bio fondé en 2018 dans le cœur du Var. Nous travaillons en direct avec des producteurs locaux pour vous proposer une cuisine fraîche, équilibrée et pleine de saveurs. Chaque plat est cuisiné le jour même, sans conservateurs ni additifs artificiels.</p>
+    <p class="intro-text">Que ce soit pour un repas en famille, un cocktail d'entreprise ou un mariage, notre équipe s'adapte à vos besoins et à votre budget. Nous mettons un point d'honneur à soigner aussi bien la présentation que le goût.</p>
+    <div class="divider"></div>
+    <p class="section-label">Ce que nous proposons</p>
+    <h2 class="section-title">Nos services</h2>
+    <div class="cards-grid">
+      <div class="card">
+        <div class="card-icon">🥗</div>
+        <h3>Buffets & Cocktails</h3>
+        <p>Des plateaux gourmands pour vos réceptions, cocktails dinatoires et événements professionnels.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🎂</div>
+        <h3>Mariages & Fêtes</h3>
+        <p>Des menus sur-mesure pour vos moments les plus précieux, avec service à table inclus.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">📦</div>
+        <h3>Livraison à domicile</h3>
+        <p>Commandez en ligne et recevez vos plats chauds à domicile dans un rayon de 30 km.</p>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="logo">
+          <div class="logo-icon">🌿</div>
+          <span class="logo-text">Bella Verde</span>
+        </div>
+        <p>Traiteur bio & local depuis 2018. Var, France.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="#">Accueil</a></li>
+          <li><a href="#">Nos Menus</a></li>
+          <li><a href="#">À Propos</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="#">contact@bellaverde.fr</a></li>
+          <li><a href="#">06 12 34 56 78</a></li>
+          <li><a href="#">Instagram</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2024 Bella Verde – Tous droits réservés</span>
+      <span>Mentions légales</span>
+    </div>
+  </footer>
+
+</body>
+</html>
